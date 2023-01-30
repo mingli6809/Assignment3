@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Assignment3.Models.RegisterForm>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Register</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceTime)
+        </th>
+        <th>
+            Client Name
+        </th>
+        <th>
+            Service Type
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Service.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RegisterNo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RegisterNo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RegisterNo })
+        </td>
+    </tr>
+}
+
+</table>
